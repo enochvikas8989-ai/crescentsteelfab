@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crescent Steel Fab - Professional steel fabrication, structural steel, roofing, sheds, gates and cladding solutions.">
+  <title>Crescent Steel Fab | Steel Fabrication & Engineering</title>
+
+  <style>
+    :root{
+      --navy:#06204A;
+      --navy2:#0A2E63;
+      --steel:#8EA7C0;
+      --light:#F4F7FB;
+      --white:#FFFFFF;
+      --accent:#1F5FAF;
+      --accent-light:#E8F1FB;
+      --dark:#122033;
+      --muted:#526274;
+      --border:#e2e7eb;
+      --shadow:0 18px 50px rgba(7,24,39,.12);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--dark);
+      background:var(--white);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1140px,92%);margin:auto}
+
+    /* NAVBAR */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1000;
+      background:rgba(6,32,74,.97);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;color:#fff}
+    .brand-mark{
+      width:42px;height:42px;border:2px solid #ffffff;
+      border-radius:10px;display:grid;place-items:center;
+      font-weight:900;color:#ffffff;font-size:19px;
+      transform:skew(-8deg);
+    }
+    .brand-text strong{display:block;font-size:17px;letter-spacing:.8px}
+    .brand-text span{font-size:10px;color:#BFD0E2;letter-spacing:2px;text-transform:uppercase}
+    nav ul{list-style:none;display:flex;gap:28px}
+    nav a{color:#e8edf1;font-size:14px;font-weight:600;transition:.25s}
+    nav a:hover{color:var(--accent)}
+    .nav-btn{
+      background:#ffffff;color:var(--navy);
+      padding:11px 18px;border-radius:9px;font-weight:800;font-size:13px;
+    }
+    .menu{display:none;color:white;font-size:26px;cursor:pointer}
+
+    /* HERO */
+    .hero{
+      min-height:760px;
+      padding-top:78px;
+      display:flex;align-items:center;
+      background:
+        linear-gradient(90deg,rgba(6,32,74,.99) 0%,rgba(6,32,74,.94) 52%,rgba(10,46,99,.78) 100%),
+        radial-gradient(circle at 78% 50%,rgba(31,95,175,.35),transparent 32%),
+        linear-gradient(135deg,#06204A,#0A2E63);
+      color:white;
+      position:relative;overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;inset:0;
+      opacity:.06;
+      background-image:
+        linear-gradient(30deg,#fff 12%,transparent 12.5%,transparent 87%,#fff 87.5%),
+        linear-gradient(150deg,#fff 12%,transparent 12.5%,transparent 87%,#fff 87.5%);
+      background-size:70px 120px;
+      pointer-events:none;
+    }
+    .hero-content{position:relative;z-index:1;max-width:760px}
+    .eyebrow{
+      color:#9CC7F5;font-weight:800;text-transform:uppercase;
+      letter-spacing:3px;font-size:12px;margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(42px,6vw,76px);
+      line-height:1.03;letter-spacing:-2.5px;margin-bottom:24px;
+    }
+    h1 span{color:#9CC7F5}
+    .hero p{font-size:18px;color:#d3dce3;max-width:650px;margin-bottom:32px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 23px;border-radius:9px;font-weight:800;
+      transition:.25s;border:1px solid transparent;
+    }
+    .btn-primary{background:var(--accent);color:var(--navy)}
+    .btn-primary:hover{transform:translateY(-2px);background:#174B8D;box-shadow:0 10px 25px rgba(6,32,74,.22)}
+    .btn-outline{border-color:rgba(255,255,255,.7);color:#FFFFFF}
+    .btn-outline:hover{border-color:#ffffff;color:#ffffff}
+    .hero-stats{
+      display:flex;gap:40px;margin-top:52px;
+      padding-top:25px;border-top:1px solid rgba(255,255,255,.15);
+    }
+    .stat strong{font-size:27px;display:block;color:white}
+    .stat span{font-size:11px;color:#9fabb5;text-transform:uppercase;letter-spacing:1.2px}
+
+    /* GENERAL */
+    section{padding:95px 0}
+    .section-head{max-width:680px;margin-bottom:48px}
+    .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+    .kicker{
+      color:var(--accent);font-size:12px;font-weight:900;
+      letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;
+    }
+    h2{color:var(--navy);font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:15px;color:var(--navy)}
+    .section-head p{color:var(--muted)}
+
+    /* ABOUT */
+    .about{background:var(--light)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .about-visual{
+      min-height:470px;border-radius:var(--radius);
+      background:
+        linear-gradient(135deg,rgba(6,32,74,.97),rgba(10,46,99,.82)),
+        repeating-linear-gradient(0deg,transparent 0 45px,rgba(255,255,255,.06) 46px),
+        repeating-linear-gradient(90deg,transparent 0 45px,rgba(255,255,255,.06) 46px),
+        #193447;
+      position:relative;overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .steel-frame{
+      position:absolute;inset:55px;
+      border:8px solid #9CC7F5;
+      transform:skewY(-8deg);
+    }
+    .steel-frame:before,.steel-frame:after{
+      content:"";position:absolute;background:#9CC7F5;
+    }
+    .steel-frame:before{width:8px;height:100%;left:30%;top:0}
+    .steel-frame:after{height:8px;width:100%;left:0;top:48%}
+    .visual-label{
+      position:absolute;left:30px;bottom:28px;color:white;
+      font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:800;
+    }
+    .about-copy p{color:var(--muted);margin-bottom:20px}
+    .checks{list-style:none;display:grid;gap:12px;margin:25px 0}
+    .checks li{font-weight:700;font-size:14px}
+    .checks li:before{content:"✓";color:var(--accent);font-weight:900;margin-right:10px}
+
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{
+      border:1px solid #D8E2ED;border-radius:var(--radius);
+      padding:30px;background:#FFFFFF;transition:.3s;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d3dbe1}
+    .icon{
+      width:52px;height:52px;border-radius:12px;
+      background:var(--accent-light);color:var(--navy);
+      display:grid;place-items:center;font-size:24px;margin-bottom:22px;
+    }
+    .card h3{font-size:19px;margin-bottom:9px;color:var(--navy)}
+    .card p{font-size:14px;color:var(--muted)}
+
+    /* PROJECTS */
+    .projects{background:#06204A;color:#FFFFFF}
+    .projects h2{color:white}
+    .projects .section-head p{color:#aeb9c4}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .project{
+      min-height:340px;border-radius:16px;overflow:hidden;position:relative;
+      background:linear-gradient(145deg,#164B7F,#0A2E63);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .project:nth-child(2){background:linear-gradient(145deg,#285F91,#0A2E63)}
+    .project:nth-child(3){background:linear-gradient(145deg,#3A668F,#0A2E63)}
+    .project-art{
+      position:absolute;inset:28px 28px 105px;
+      border:5px solid #9CC7F5;
+      transform:skewY(-7deg);
+    }
+    .project-art:after{
+      content:"";position:absolute;left:22%;right:22%;top:45%;
+      height:5px;background:#9CC7F5;
+    }
+    .project-info{
+      position:absolute;left:24px;right:24px;bottom:23px;
+    }
+    .project-info span{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;font-weight:800}
+    .project-info h3{font-size:19px;margin-top:5px}
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+    .why-list{display:grid;gap:18px}
+    .why-item{display:flex;gap:16px;padding:20px;border:1px solid var(--border);border-radius:14px}
+    .why-number{font-weight:900;color:var(--accent);font-size:20px}
+    .why-item h3{font-size:16px;color:var(--navy);margin-bottom:3px}
+    .why-item p{font-size:13px;color:var(--muted)}
+    .quote-box{
+      background:var(--navy);color:white;border-radius:var(--radius);
+      padding:42px;position:sticky;top:110px;
+    }
+    .quote-box .big{font-size:42px;color:var(--accent);line-height:1}
+    .quote-box h3{font-size:27px;margin:15px 0}
+    .quote-box p{color:#b9c5ce;font-size:14px}
+
+    /* CONTACT */
+    .contact{background:var(--light)}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}
+    .contact-card,.form{
+      background:#FFFFFF;border:1px solid #D8E2ED;
+      border-radius:var(--radius);padding:32px;
+    }
+    .contact-card h3{font-size:24px;color:var(--navy);margin-bottom:18px}
+    .contact-row{display:flex;gap:14px;padding:17px 0;border-bottom:1px solid var(--border)}
+    .contact-row:last-child{border:0}
+    .contact-icon{font-size:20px;width:28px}
+    .contact-row strong{display:block;font-size:13px;color:var(--navy)}
+    .contact-row span{font-size:13px;color:var(--muted)}
+    form{display:grid;gap:15px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    label{font-size:12px;font-weight:800;color:var(--navy);display:block;margin-bottom:6px}
+    input,textarea,select{
+      width:100%;padding:13px 14px;border:1px solid var(--border);
+      border-radius:9px;font:inherit;outline:none;background:#fff;
+    }
+    input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+    textarea{min-height:130px;resize:vertical}
+
+    /* FOOTER */
+    footer{background:#041A3A;color:#aeb9c4;padding:55px 0 25px}
+    .footer-top{display:flex;justify-content:space-between;gap:30px;padding-bottom:35px;border-bottom:1px solid rgba(255,255,255,.09)}
+    .footer-brand{max-width:400px}
+    .footer-brand p{font-size:13px;margin-top:12px}
+    .footer-links{display:flex;gap:55px}
+    .footer-links h4{color:white;font-size:13px;margin-bottom:12px}
+    .footer-links a{display:block;font-size:12px;margin:7px 0;color:#D7E4F1}
+    .copyright{font-size:11px;text-align:center;padding-top:22px}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav ul,.nav-btn{display:none}
+      .menu{display:block}
+      .hero{min-height:700px}
+      .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr}
+      .services-grid,.project-grid{grid-template-columns:1fr 1fr}
+      .quote-box{position:static}
+      .about-visual{min-height:360px}
+    }
+    @media(max-width:600px){
+      .nav{height:68px}
+      .brand-text strong{font-size:14px}
+      .hero{padding-top:68px;min-height:650px}
+      h1{font-size:43px;letter-spacing:-1.5px}
+      .hero p{font-size:15px}
+      .hero-stats{gap:20px;flex-wrap:wrap}
+      section{padding:70px 0}
+      .services-grid,.project-grid{grid-template-columns:1fr}
+      .form-grid{grid-template-columns:1fr}
+      .footer-top{flex-direction:column}
+      .footer-links{gap:30px;flex-wrap:wrap}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand">
+      <div class="brand-mark">CS</div>
+      <div class="brand-text">
+        <strong>CRESCENT STEEL FAB</strong>
+        <span>Engineering • Fabrication • Structures</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="nav-btn" href="#contact">Get a Quote</a>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="eyebrow">Industrial Sheds • Roofing • Steel Fabrication</div>
+      <h1>Industrial Steel.<br><span>Built with Precision.</span></h1>
+      <p>
+        Professional steel fabrication and structural engineering solutions
+        for industrial, commercial and residential projects.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Request a Project Quote →</a>
+        <a class="btn btn-outline" href="#projects">View Projects</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><strong>01</strong><span>Industrial Sheds</span></div>
+        <div class="stat"><strong>02</strong><span>Roofing Solutions</span></div>
+        <div class="stat"><strong>03</strong><span>Custom Fabrication</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <div class="steel-frame"></div>
+        <div class="visual-label">Crescent Steel Fab • Engineering & Fabrication</div>
+      </div>
+
+      <div class="about-copy">
+        <div class="kicker">About Us</div>
+        <h2>Steel solutions engineered for real-world performance.</h2>
+        <p>
+          Crescent Steel Fab provides practical and dependable steel fabrication
+          solutions with a focus on structural strength, clean workmanship and
+          project requirements.
+        </p>
+        <p>
+          From steel sheds and structural frames to gates, roofing and cladding,
+          we work from concept through fabrication and installation.
+        </p>
+
+        <ul class="checks">
+          <li>Industrial shed and structural steel fabrication</li>
+          <li>Custom steel structures, gates and fabrication</li>
+          <li>All types of roofing and cladding solutions</li>
+          <li>Solar roofing and industrial projects</li>
+        </ul>
+
+        <a class="btn btn-primary" href="#contact">Discuss Your Requirement</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Our Services</div>
+        <h2>Industrial steel & roofing solutions</h2>
+        <p>From industrial sheds and structural steel to roofing and solar roofing, we deliver practical solutions tailored to your site and project requirements.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="card">
+          <div class="icon">🏗</div>
+          <h3>Industrial Sheds & Structural Steel</h3>
+          <p>Design-oriented fabrication of industrial shed frames, columns, beams, trusses and other structural steel members.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🏭</div>
+          <h3>Industrial Sheds</h3>
+          <p>Complete steel shed structures for warehouses, workshops, factories and commercial applications.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🚪</div>
+          <h3>Gates & Steelwork</h3>
+          <p>Custom sliding gates, entrance structures, frames and fabricated steel components.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">▱</div>
+          <h3>Roofing Works</h3>
+          <p>All types of roofing works, including sheet roofing, structural roof systems, replacement roofing and custom sloped roofing.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">▥</div>
+          <h3>Roofing & Cladding</h3>
+          <p>Roof and wall cladding solutions for industrial sheds, warehouses and commercial steel structures.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">⚙</div>
+          <h3>Solar Roofing Structures</h3>
+          <p>Strong and practical steel structures for solar panel installations on rooftops, car parks and suitable open areas.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Our Capabilities</div>
+        <h2>Built for demanding industrial applications.</h2>
+        <p>Showcase your completed industrial sheds, roofing projects, solar structures and custom fabrication work here.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project">
+          <div class="project-art"></div>
+          <div class="project-info">
+            <span>Steel Structure</span>
+            <h3>Industrial Shed Structure</h3>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-art"></div>
+          <div class="project-info">
+            <span>Fabrication</span>
+            <h3>Industrial Sheds & Structural Steel Fabrication</h3>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-art"></div>
+          <div class="project-info">
+            <span>Custom Steelwork</span>
+            <h3>Sliding Gate & Roofing & Cladding</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section>
+    <div class="container why-grid">
+      <div>
+        <div class="section-head">
+          <div class="kicker">Why Crescent Steel Fab</div>
+          <h2>Quality fabrication. Professional execution.</h2>
+          <p>
+            Every project is approached around the actual dimensions,
+            application and installation requirements.
+          </p>
+        </div>
+
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-number">01</div>
+            <div>
+              <h3>Site-Focused Planning</h3>
+              <p>Project dimensions, site conditions and installation requirements are considered before fabrication.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-number">02</div>
+            <div>
+              <h3>Quality Workmanship</h3>
+              <p>We focus on accurate fabrication, clean finishing and dependable structural workmanship.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-number">03</div>
+            <div>
+              <h3>Project-Specific Solutions</h3>
+              <p>Solutions are developed around the specific dimensions, application and requirements of each project.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="quote-box">
+        <div class="big">“</div>
+        <h3>Planning an industrial or roofing project?</h3>
+        <p>
+          Send us your measurements, drawing, reference image or project idea.
+          We can discuss the fabrication requirements with you.
+        </p>
+        <br>
+        <a class="btn btn-primary" href="#contact">Start a Conversation</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Contact</div>
+        <h2>Let's discuss your project.</h2>
+        <p>For industrial sheds, roofing, solar roofing structures and custom steel fabrication, contact Crescent Steel Fab.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>Crescent Steel Fab</h3>
+
+          <!-- Replace the placeholder details below -->
+          <div class="contact-row">
+            <div class="contact-icon">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+919846129999"><a href="https://wa.me/919846129999" target="_blank" rel="noopener"><span>+91 98461 29999</span></a></a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">💬</div>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>+91 98461 29999</span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">✉</div>
+            <div>
+              <strong>Email</strong>
+              <span>crescentsteelfab@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <span>Edappally, Kochi, Kerala</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form">
+          <form onsubmit="sendWhatsApp(event)">
+            <div class="form-grid">
+              <div>
+                <label for="name">Your Name</label>
+                <input id="name" required placeholder="Enter your name">
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input id="phone" required placeholder="Enter phone number">
+              </div>
+            </div>
+
+            <div>
+              <label for="service">Project Type</label>
+              <select id="service">
+                <option>Steel Shed</option>
+                <option>Industrial Sheds & Structural Steel</option>
+                <option>Gate / Steelwork</option>
+                <option>Roofing Works</option>
+                <option>Roofing & Cladding</option>
+                <option>Other Fabrication</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message">Project Details</label>
+              <textarea id="message" required placeholder="Tell us about your project, dimensions or requirements..."></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send Enquiry via WhatsApp →</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand">
+          <div class="brand-mark">CS</div>
+          <div class="brand-text">
+            <strong>CRESCENT STEEL FAB</strong>
+            <span>Engineering • Fabrication • Structures</span>
+          </div>
+        </div>
+        <p>Crescent Steel Fab delivers industrial steel structures, roofing and fabrication solutions with a focus on quality workmanship, practical engineering and reliable execution.</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Navigate</h4>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="#contact">Get a Quote</a>
+          <a href="#contact">WhatsApp</a>
+          <a href="#contact">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Crescent Steel Fab. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function toggleMenu(){
+    const nav = document.querySelector("nav ul");
+    const current = getComputedStyle(nav).display;
+    nav.style.display = current === "none" ? "flex" : "none";
+    nav.style.position = "absolute";
+    nav.style.top = "68px";
+    nav.style.left = "0";
+    nav.style.right = "0";
+    nav.style.padding = "20px";
+    nav.style.background = "#071827";
+    nav.style.flexDirection = "column";
+  }
+
+  function sendWhatsApp(event){
+    event.preventDefault();
+
+    // Crescent Steel Fab WhatsApp number
+    const whatsappNumber = "919846129999";
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value;
+
+    const text =
+      "Hello Crescent Steel Fab,%0A%0A" +
+      "Name: " + encodeURIComponent(name) + "%0A" +
+      "Phone: " + encodeURIComponent(phone) + "%0A" +
+      "Project: " + encodeURIComponent(service) + "%0A" +
+      "Details: " + encodeURIComponent(message);
+
+    window.open("https://wa.me/" + whatsappNumber + "?text=" + text, "_blank");
+  }
+</script>
+
+</body>
+</html>
